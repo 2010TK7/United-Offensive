@@ -9,7 +9,7 @@
 	"UO_PO_title": "Cops Spawn Difficulty",
 	"UO_PO_desc": "Only 40 health. Not include Murky verson.",
 	"UO_HRT_title": "HRTs Spawn Difficulty",
-	"UO_HRT_desc": "Not include Russian & Murky HRT",
+	"UO_HRT_desc": "Only include America & Zombie HRT",
 	"UO_SCS_title": "Old Gensec SWAT Spawn",
 	"UO_SCS_desc": "Using UMP45 and XM1014",
 	"UO_mix_title": "mixture assault rifle enemies and shotgunners",

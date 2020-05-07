@@ -3,7 +3,7 @@
 	"description": "Allow enermies from lower difficulty spawn in the difficulty you are playing, also add some interesting units.",
 	"author": "TK7, Schrodinger_Sig"
 	"contact": "https://steamcommunity.com/id/2010TK7 https://steamcommunity.com/id/xdedxg",
-	"version": "1.7.1_NE",
+	"version": "1.7.10_NE",
 	"image": "OU.png",
 	"blt_version": 2,
 	"updates": [
