@@ -1,36 +1,208 @@
 local _UO = UnitedOffensive.settings
 
-Hooks:PostHook(GroupAITweakData, "_init_unit_categories", "UO.init_unit_categories", function(self, difficulty_index)
-	UO = {}
-	UnitedOffensive:Load()
-	UO.SWAT = {america = {}, russia = {}, zombie = {}, murkywater = {}}
-	self.unit_categories.CS_swat_MP5.unit_types = UO.SWAT
-	self.unit_categories.CS_swat_R870.unit_types = UO.SWAT
-	self.unit_categories.CS_heavy_M4.unit_types = UO.SWAT
-	self.unit_categories.CS_heavy_R870.unit_types = UO.SWAT
-	self.unit_categories.CS_heavy_M4_w.unit_types = UO.SWAT
-	self.unit_categories.FBI_swat_M4.unit_types = UO.SWAT
-	self.unit_categories.FBI_swat_R870.unit_types = UO.SWAT
-	self.unit_categories.FBI_heavy_G36.unit_types = UO.SWAT
-	self.unit_categories.FBI_heavy_R870.unit_types = UO.SWAT
-	self.unit_categories.FBI_heavy_G36_w.unit_types = UO.SWAT
-	UO.SHIELD = deep_clone(UO.SWAT)
-	if _UO.CM_Phalanx then
-		self.unit_categories.CS_shield.unit_types = self.unit_categories.Phalanx_minion.unit_types
-		self.unit_categories.FBI_shield.unit_types = self.unit_categories.Phalanx_minion.unit_types
-	else
-		self.unit_categories.CS_shield.unit_types = UO.SHIELD
-		self.unit_categories.FBI_shield.unit_types = UO.SHIELD
+function GroupAITweakData:_init_unit_categories(difficulty_index)
+	local access_type_walk_only = {
+		walk = true
+	}
+	local access_type_all = {
+		acrobatic = true,
+		walk = true
+	}
+
+	self.special_unit_spawn_limits = {
+		shield = 2,
+		medic = 3,
+		taser = 1,
+		tank = 1,
+		spooc = 0
+	}
+	if difficulty_index >= 3 then
+		self.special_unit_spawn_limits.shield = self.special_unit_spawn_limits.shield + 2
+		self.special_unit_spawn_limits.taser = self.special_unit_spawn_limits.taser + 1
+		self.special_unit_spawn_limits.tank = self.special_unit_spawn_limits.tank + 1
 	end
+	if difficulty_index >= 4 then
+		self.special_unit_spawn_limits.spooc = self.special_unit_spawn_limits.spooc + 2
+	end
+	if difficulty_index >= 6 then
+		self.special_unit_spawn_limits.taser = self.special_unit_spawn_limits.taser + 1
+	end
+	if difficulty_index == 8 then
+		self.special_unit_spawn_limits.tank = self.special_unit_spawn_limits.tank + 1
+	end
+	if difficulty_index > 8 then
+		self.special_unit_spawn_limits.shield = self.special_unit_spawn_limits.shield + 4
+		self.special_unit_spawn_limits.taser = self.special_unit_spawn_limits.taser + 1
+	end
+
+	self.unit_categories = {}
+
+	self.unit_categories.CS_cop_C45_R870 = {
+		unit_types = {
+			america = {
+				Idstring("units/payday2/characters/ene_cop_1/ene_cop_1"),
+				Idstring("units/payday2/characters/ene_cop_3/ene_cop_3"),
+				Idstring("units/payday2/characters/ene_cop_4/ene_cop_4")
+			},
+			russia = {
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_r870/ene_akan_cs_cop_r870")
+			},
+			zombie = {
+				Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_1/ene_cop_hvh_1"),
+				Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_3/ene_cop_hvh_3"),
+				Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_4/ene_cop_hvh_4")
+			}
+		},
+		access = access_type_walk_only
+	}
+	self.unit_categories.CS_cop_stealth_MP5 = {
+		unit_types = {
+			america = {
+				Idstring("units/payday2/characters/ene_cop_2/ene_cop_2")
+			},
+			russia = {
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_akmsu_smg/ene_akan_cs_cop_akmsu_smg")
+			},
+			zombie = {
+				Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_2/ene_cop_hvh_2")
+			}
+		},
+		access = access_type_walk_only
+	}
+	self.unit_categories.CS_cop_C45_R870.unit_types.murkywater = self.unit_categories.CS_cop_C45_R870.unit_types.america
+	self.unit_categories.CS_cop_stealth_MP5.unit_types.murkywater = self.unit_categories.CS_cop_stealth_MP5.unit_types.america
+
+	self.unit_categories.FBI_suit_C45_M4 = {
+		unit_types = {
+			america = {
+				Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_1"),
+				Idstring("units/payday2/characters/ene_fbi_2/ene_fbi_2")
+			},
+			russia = {
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_ak47_ass/ene_akan_cs_cop_ak47_ass"),
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_ak47_ass/ene_akan_cs_cop_ak47_ass")
+			},
+			zombie = {
+				Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_1/ene_fbi_hvh_1"),
+				Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_2/ene_fbi_hvh_2")
+			}
+		},
+		access = access_type_all
+	}
+	self.unit_categories.FBI_suit_M4_MP5 = {
+		unit_types = {
+			america = {
+				Idstring("units/payday2/characters/ene_fbi_2/ene_fbi_2"),
+				Idstring("units/payday2/characters/ene_fbi_3/ene_fbi_3")
+			},
+			russia = {
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_asval_smg/ene_akan_cs_cop_asval_smg"),
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_asval_smg/ene_akan_cs_cop_asval_smg")
+			},
+			zombie = {
+				Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_2/ene_fbi_hvh_2"),
+				Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_3/ene_fbi_hvh_3")
+			}
+		},
+		access = access_type_all
+	}
+	self.unit_categories.FBI_suit_stealth_MP5 = {
+		unit_types = {
+			america = {
+				Idstring("units/payday2/characters/ene_fbi_3/ene_fbi_3")
+			},
+			russia = {
+				Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_cop_asval_smg/ene_akan_cs_cop_asval_smg")
+			},
+			zombie = {
+				Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_3/ene_fbi_hvh_3")
+			}
+		},
+		access = access_type_all
+	}
+	self.unit_categories.FBI_suit_C45_M4.unit_types.murkywater = self.unit_categories.FBI_suit_C45_M4.unit_types.america
+	self.unit_categories.FBI_suit_M4_MP5.unit_types.murkywater = self.unit_categories.FBI_suit_M4_MP5.unit_types.america
+	self.unit_categories.FBI_suit_stealth_MP5.unit_types.murkywater = self.unit_categories.FBI_suit_stealth_MP5.unit_types.america
+
+	self.unit_categories.Phalanx_minion = {
+		is_captain = true,
+		special_type = "shield",
+		unit_types = {
+			america = {
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1/ene_phalanx_1")
+			}
+		},
+		access = access_type_walk_only
+	}
+	self.unit_categories.Phalanx_vip = {
+		is_captain = true,
+		special_type = "shield",
+		unit_types = {
+			america = {
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_1/ene_vip_1")
+			}
+		},
+		access = access_type_walk_only
+	}
+	self.unit_categories.Phalanx_minion.unit_types.russia = self.unit_categories.Phalanx_minion.unit_types.america
+	self.unit_categories.Phalanx_minion.unit_types.zombie = self.unit_categories.Phalanx_minion.unit_types.america
+	self.unit_categories.Phalanx_minion.unit_types.murkywater = self.unit_categories.Phalanx_minion.unit_types.america
+	self.unit_categories.Phalanx_vip.unit_types.russia = self.unit_categories.Phalanx_vip.unit_types.america
+	self.unit_categories.Phalanx_vip.unit_types.zombie = self.unit_categories.Phalanx_vip.unit_types.america
+	self.unit_categories.Phalanx_vip.unit_types.murkywater = self.unit_categories.Phalanx_vip.unit_types.america
+
+	UnitedOffensive:Load()
+
+	UO = {}
+	UO.SWAT = {america = {}, russia = {}, zombie = {}, murkywater = {}}
+	self.unit_categories.CS_swat_MP5 = {
+		unit_types = UO.SWAT,
+		access = access_type_all
+	}
+	self.unit_categories.CS_swat_R870 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.CS_heavy_M4 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.CS_heavy_R870 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.CS_heavy_M4_w = {
+		unit_types = UO.SWAT,
+		access = access_type_walk_only
+	}
+	self.unit_categories.FBI_swat_M4 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.FBI_swat_R870 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.FBI_heavy_G36 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.FBI_heavy_R870 = self.unit_categories.CS_swat_MP5
+	self.unit_categories.FBI_heavy_G36_w = self.unit_categories.CS_heavy_M4_w
+	UO.SHIELD = deep_clone(UO.SWAT)
+	self.unit_categories.CS_shield = {
+		special_type = "shield",
+		unit_types = _UO.CM_Phalanx and self.unit_categories.Phalanx_minion.unit_types or UO.SHIELD,
+		access = access_type_walk_only
+	}
+	self.unit_categories.FBI_shield = self.unit_categories.CS_shield
 	UO.MEDIC = deep_clone(UO.SWAT)
-	self.unit_categories.medic_M4.unit_types = UO.MEDIC
-	self.unit_categories.medic_R870.unit_types = UO.MEDIC
+	self.unit_categories.medic_M4 = {
+		special_type = "medic",
+		unit_types = UO.MEDIC,
+		access = access_type_all
+	}
+	self.unit_categories.medic_R870 = self.unit_categories.medic_M4
 	UO.TASER = deep_clone(UO.SWAT)
-	self.unit_categories.CS_tazer.unit_types = UO.TASER
+	self.unit_categories.CS_tazer = {
+		special_type = "taser",
+		unit_types = UO.TASER,
+		access = access_type_all
+	}
 	UO.DOZER = deep_clone(UO.SWAT)
-	self.unit_categories.FBI_tank.unit_types = UO.DOZER
+	self.unit_categories.FBI_tank = {
+		special_type = "tank",
+		unit_types = UO.DOZER,
+		access = access_type_all
+	}
 	UO.CLOAKER = deep_clone(UO.SWAT)
-	self.unit_categories.spooc.unit_types = UO.CLOAKER
+	self.unit_categories.spooc = {
+		special_type = "spooc",
+		unit_types = UO.CLOAKER,
+		access = access_type_all
+	}
 	AR = deep_clone(UO)
 	UO.zeal = {SWAT = {}, SHIELD = {}, MEDIC = {}, TASER = {}, DOZER = {}, CLOAKER = {}}
 
@@ -120,20 +292,20 @@ Hooks:PostHook(GroupAITweakData, "_init_unit_categories", "UO.init_unit_categori
 	table.insert(UO.DOZER.russia, Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_tank_r870/ene_akan_fbi_tank_r870"))
 	table.insert(UO.DOZER.zombie, Idstring("units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_1/ene_bulldozer_hvh_1"))
 	table.insert(UO.DOZER.murkywater, Idstring("units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_2/ene_murkywater_bulldozer_2"))
-	table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"))
+	table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"))
 	if difficulty_index >= 5 or _UO.CM_Dozer_Shot then
 		table.insert(UO.DOZER.america, Idstring("units/payday2/characters/ene_bulldozer_2/ene_bulldozer_2"))
 		table.insert(UO.DOZER.russia, Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_tank_saiga/ene_akan_fbi_tank_saiga"))
 		table.insert(UO.DOZER.zombie, Idstring("units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_2/ene_bulldozer_hvh_2"))
 		table.insert(UO.DOZER.murkywater, Idstring("units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_3/ene_murkywater_bulldozer_3"))
-		table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"))
+		table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"))
 	end
 	if difficulty_index >= 7 or _UO.CM_Dozer_Skull then
 		table.insert(UO.DOZER.america, Idstring("units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3"))
 		table.insert(UO.DOZER.russia, Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_tank_rpk_lmg/ene_akan_fbi_tank_rpk_lmg"))
 		table.insert(UO.DOZER.zombie, Idstring("units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_3/ene_bulldozer_hvh_3"))
 		table.insert(UO.DOZER.murkywater, Idstring("units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_4/ene_murkywater_bulldozer_4"))
-		table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"))
+		table.insert(UO.zeal.DOZER, Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"))
 	end
 	if difficulty_index >= 7 or _UO.CM_Dozer_Mini then
 		table.insert(UO.DOZER.america, Idstring("units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_minigun"))
@@ -202,84 +374,4 @@ Hooks:PostHook(GroupAITweakData, "_init_unit_categories", "UO.init_unit_categori
 			end
 		end
 	end
-
-	--AR United Forces
-	for k in pairs(AR) do
-		for _, v in pairs(UO[k].america) do
-			if _UO.AR_AA then
-				table.insert(AR[k].america, v)
-			end
-			if _UO.AR_RA then
-				table.insert(AR[k].russia, v)
-			end
-			if _UO.AR_ZA then
-				table.insert(AR[k].zombie, v)
-			end
-			if _UO.AR_MA then
-				table.insert(AR[k].murkywater, v)
-			end
-		end
-		for _, v in pairs(UO[k].russia) do
-			if _UO.AR_AR then
-				table.insert(AR[k].america, v)
-			end
-			if _UO.AR_RR then
-				table.insert(AR[k].russia, v)
-			end
-			if _UO.AR_ZR then
-				table.insert(AR[k].zombie, v)
-			end
-			if _UO.AR_MR then
-				table.insert(AR[k].murkywater, v)
-			end
-		end
-		for _, v in pairs(UO[k].zombie) do
-			if _UO.AR_AZ then
-				table.insert(AR[k].america, v)
-			end
-			if _UO.AR_RZ then
-				table.insert(AR[k].russia, v)
-			end
-			if _UO.AR_ZZ then
-				table.insert(AR[k].zombie, v)
-			end
-			if _UO.AR_MZ then
-				table.insert(AR[k].murkywater, v)
-			end
-		end
-		for _, v in pairs(UO[k].murkywater) do
-			if _UO.AR_AM then
-				table.insert(AR[k].america, v)
-			end
-			if _UO.AR_RM then
-				table.insert(AR[k].russia, v)
-			end
-			if _UO.AR_ZM then
-				table.insert(AR[k].zombie, v)
-			end
-			if _UO.AR_MM then
-				table.insert(AR[k].murkywater, v)
-			end
-		end
-		if _UO.AR_ZEAL or difficulty_index == 8 then
-			for _, v in pairs(UO.zeal[k]) do
-				if _UO.AR_AO then
-					table.insert(AR[k].america, v)
-				end
-				if _UO.AR_RO then
-					table.insert(AR[k].russia, v)
-				end
-				if _UO.AR_ZO then
-					table.insert(AR[k].zombie, v)
-				end
-				if _UO.AR_MO then
-					table.insert(AR[k].murkywater, v)
-				end
-			end
-		end
-		UO[k].america = #AR[k].america ~= 0 and AR[k].america or UO[k].america
-		UO[k].russia = #AR[k].russia ~= 0 and AR[k].russia or UO[k].russia
-		UO[k].zombie = #AR[k].zombie ~= 0 and AR[k].zombie or UO[k].zombie
-		UO[k].murkywater = #AR[k].murkywater ~= 0 and AR[k].murkywater or UO[k].murkywater
-	end
-end)
+end

@@ -25,10 +25,15 @@ function GroupAIStateBesiege:_perform_group_spawning(spawn_task, force, use_last
 
 				if sp_data.delay_t < self._t then
 					local units = category.unit_types[current_unit_type]
+					if UnitedForces then
+						units = UnitedForces:ARUnitedForces(u_type_name, current_unit_type)
+					end
 					produce_data.name = units[math.random(#units)]
-					UnitedOffensive:Load()
-					if UnitedOffensive.settings.CM_Sniper then
-						produce_data.name = UnitedOffensive:CMSniper(produce_data.name)
+					if UnitedOffensive then
+						UnitedOffensive:Load()
+						if UnitedOffensive.settings.CM_Sniper then
+							produce_data.name = UnitedOffensive:CMSniper(produce_data.name)
+						end
 					end
 					produce_data.name = managers.modifiers:modify_value("GroupAIStateBesiege:SpawningUnit", produce_data.name)
 					local spawned_unit = sp_data.mission_element:produce(produce_data)
