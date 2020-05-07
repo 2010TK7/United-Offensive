@@ -11,7 +11,7 @@
 			"id": "UO_Lang",
 			"title": "UO_Lang_title",
 			"description": "UO_Lang_desc",
-			"callback": "UOLang",
+			"callback": "UOCheckNum",
 			"items":
 			[
 				"UO_Lang_en",
@@ -19,6 +19,15 @@
 			],
 			"value": "UO_Lang",
 			"default_value": 1
+		},
+		{
+			"type": "toggle",
+			"id": "UO_mix",
+			"title": "UO_mix_title",
+			"description": "UO_mix_desc",
+			"callback": "UOCheckOn",
+			"value": "UO_mix",
+			"default_value": true
 		},
 		{
 			"type": "divider",
@@ -29,7 +38,7 @@
 			"id": "UO_PO",
 			"title": "UO_PO_title",
 			"description": "UO_PO_desc",
-			"callback": "UOSpawnPO",
+			"callback": "UOCheckNum",
 			"items":
 			[
 				"UO_never_spawn",
@@ -39,17 +48,17 @@
 				"menu_difficulty_overkill",
 				"menu_difficulty_easy_wish",
 				"menu_difficulty_apocalypse",
-				"UO_DS"
+				"menu_difficulty_sm_wish"
 			],
 			"value": "UO_PO",
-			"default_value": 2
+			"default_value": 1
 		},
 		{
 			"type": "multiple_choice",
 			"id": "UO_HRT",
 			"title": "UO_HRT_title",
 			"description": "UO_HRT_desc",
-			"callback": "UOSpawnHRT",
+			"callback": "UOCheckNum",
 			"items":
 			[
 				"UO_never_spawn",
@@ -59,19 +68,19 @@
 				"menu_difficulty_overkill",
 				"menu_difficulty_easy_wish",
 				"menu_difficulty_apocalypse",
-				"UO_DS"
+				"menu_difficulty_sm_wish"
 			],
 			"value": "UO_HRT",
-			"default_value": 4
+			"default_value": 1
 		},
 		{
 			"type": "toggle",
 			"id": "UO_SCS",
 			"title": "UO_SCS_title",
 			"description": "UO_SCS_desc",
-			"callback": "UOCheck",
+			"callback": "UOCheckOn",
 			"value": "UO_SCS",
-			"default_value": true
+			"default_value": false
 		}
 	]
 }
