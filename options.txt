@@ -1,0 +1,72 @@
+{
+	"menu_id": "UO_menu",
+	"parent_menu_id": "blt_options",
+	"title": "UO_menu_title",
+	"description": "UO_menu_desc",
+	"back_callback": "UOSave",
+	"items":
+	[
+		{
+			"type": "toggle",
+			"id": "UO_AR",
+			"title": "UO_AR_title",
+			"description": "UO_AR_desc",
+			"callback": "UOSpawnBool",
+			"value": "UO_AR",
+			"default_value": false
+		},
+		{
+			"type": "divider",
+			"size": 32
+		},
+		{
+			"type": "multiple_choice",
+			"id": "UO_cops",
+			"title": "UO_cops_title",
+			"description": "UO_cops_desc",
+			"callback": "UOSpawnCop",
+			"items":
+			[
+				"UO_never_spawn",
+				"menu_difficulty_normal",
+				"menu_difficulty_hard",
+				"menu_difficulty_very_hard",
+				"menu_difficulty_overkill",
+				"menu_difficulty_easy_wish",
+				"menu_difficulty_apocalypse",
+				"UO_DS"
+			],
+			"value": "UO_cops",
+			"default_value": 2
+		},
+		{
+			"type": "multiple_choice",
+			"id": "UO_HRT",
+			"title": "UO_HRT_title",
+			"description": "UO_HRT_desc",
+			"callback": "UOSpawnHRT",
+			"items":
+			[
+				"UO_never_spawn",
+				"menu_difficulty_normal",
+				"menu_difficulty_hard",
+				"menu_difficulty_very_hard",
+				"menu_difficulty_overkill",
+				"menu_difficulty_easy_wish",
+				"menu_difficulty_apocalypse",
+				"UO_DS"
+			],
+			"value": "UO_HRT",
+			"default_value": 4
+		},
+		{
+			"type": "toggle",
+			"id": "UO_ZEAL_Sniper",
+			"title": "UO_ZEAL_Sniper_title",
+			"description": "UO_ZEAL_Sniper_desc",
+			"callback": "UOSpawnBool",
+			"value": "UO_ZEAL_Sniper",
+			"default_value": true
+		}
+	]
+}

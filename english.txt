@@ -1,0 +1,14 @@
+{
+	"UO_menu_title": "United Offensive",
+	"UO_menu_desc": "maybe some units needn't spawn?",
+	"UO_AR_title": "AR United Forces",
+	"UO_AR_desc": "you need install Spawn Supporter Russia or it will be crashed.",
+	"UO_never_spawn": "Never Spawn",
+	"UO_DS": "Death Sentence",
+	"UO_cops_title": "cops Spawn Difficulty",
+	"UO_cops_desc": "40 HP but great damage to kill bots easily.",
+	"UO_HRT_title": "HRTs Spawn Difficulty",
+	"UO_HRT_desc": "high damage for the rescue",
+	"UO_ZEAL_Sniper_title": "ZEAL Marksmen Spawn",
+	"UO_ZEAL_Sniper_desc": "with ZEAL units, no laser and move around like crime spree."
+}

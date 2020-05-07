@@ -1,0 +1,15 @@
+{
+	"name": "United Offensive",
+	"description": "high difficulty enemies are include low difficulty enemies. added some interesting units like HRTs, ZEAL Snipers, cops and so on.",
+	"author": "TK7"
+	"contact": "http://steamcommunity.com/id/2010TK7",
+	"version": "1.4[Beta]",
+	"blt_version": 2,
+	"hooks":
+	[
+		{
+			"hook_id": "lib/tweak_data/groupaitweakdata",
+			"script_path": "groupaitweakdata_1.4[Beta].lua"
+		}
+	]
+}
