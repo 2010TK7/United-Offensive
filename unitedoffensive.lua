@@ -3,7 +3,7 @@ if _G[key] then return else _G[key] = true end
 
 _G.UnitedOffensive = _G.UnitedOffensive or {}
 UnitedOffensive._path = ModPath
-UnitedOffensive._data_path = SavePath .. 'TUO.txt'
+UnitedOffensive._data_path = SavePath .. 'Tmod_TUO.txt'
 UnitedOffensive.settings = UnitedOffensive.settings or {
 	UO_Lang = 1,
 	UO_mix = true,
