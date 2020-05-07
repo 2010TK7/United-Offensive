@@ -12,22 +12,5 @@
 	"UO_HRT_title": "HRTs Spawn Difficulty",
 	"UO_HRT_desc": "Not include Russian & Murky HRT",
 	"UO_SCS_title": "Old Gensec SWAT Spawn",
-	"UO_SCS_desc": "Using UMP45 and XM1014",
-
-	"CM_menu_title": "Modifiers(Still testing)",
-	"CM_menu_desc": "add some modifiers into the game.",
-	"CM_Heavy_title": "Modifier: Heavies",
-	"CM_Heavy_desc": "All FBI SWATs will be replaced with Heavy SWATs.",
-	"CM_Sniper_title": "Modifier: HeavySniper",
-	"CM_Sniper_desc": "For every Heavy SWAT that spawns, there is a chance that it will be replaced by a ZEAL Heavy SWAT Marksman.",
-	"CM_Phalanx_title": "Modifier: ShieldPhalanx",
-	"CM_Phalanx_desc": "All Shield units in the game are replaced by Captain Winters' Shield units.",
-	"CM_Dozer_Shot_title": "Black Dozers",
-	"CM_Dozer_Shot_desc": "Whenever a Bulldozer spawns, there is a chance that it will be a Black Bulldozer.",
-	"CM_Dozer_Skull_title": "Modifier: Skull Dozer",
-	"CM_Dozer_Skull_desc": "Bulldozers are replaced by Skulldozers.",
-	"CM_Dozer_Mini_title": "Modifier: Minigun Dozer",
-	"CM_Dozer_Mini_desc": "Whenever a Bulldozer spawns, there is a chance that it will be a slow-moving minigun-wielding Bulldozer.",
-	"CM_Dozer_Medic_title": "Modifier: Medic Dozer",
-	"CM_Dozer_Medic_desc": "Whenever a Bulldozer spawns, there is a chance that it will be a Medic Bulldozer. A Medic Bulldozer counts as both a Medic and a Bulldozer."
+	"UO_SCS_desc": "Using UMP45 and XM1014"
 }

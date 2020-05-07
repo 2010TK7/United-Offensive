@@ -34,5 +34,4 @@ Hooks:Add('MenuManagerInitialize', 'UO_MenuManagerInitialize', function(menu_man
 
 	UnitedOffensive:Load()
 	MenuHelper:LoadFromJsonFile(UnitedOffensive._path .. 'menu/UO_options.txt', UnitedOffensive, UnitedOffensive.settings)
-	MenuHelper:LoadFromJsonFile(UnitedOffensive._path .. 'menu/CM_options.txt', UnitedOffensive, UnitedOffensive.settings)
 end)

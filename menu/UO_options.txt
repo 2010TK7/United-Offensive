@@ -72,10 +72,6 @@
 			"callback": "UOCheck",
 			"value": "UO_SCS",
 			"default_value": true
-		},
-		{
-			"type": "divider",
-			"size": 32
 		}
 	]
 }

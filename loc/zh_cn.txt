@@ -12,22 +12,5 @@
 	"UO_HRT_title": "HRT生成难度",
 	"UO_HRT_desc": "没有俄军和黑水版HRT(人质救援小队)",
 	"UO_SCS_title": "特殊Gensec水军生成",
-	"UO_SCS_desc": "UMP45和XM1014的两个轻甲水军",
-
-	"CM_menu_title": "测试性功能",
-	"CM_menu_desc": "里面有部分调节器功能可以用",
-	"CM_Heavy_title": "Modifier: Heavies",
-	"CM_Heavy_desc": "所有轻甲水军转化为重甲水军",
-	"CM_Sniper_title": "Modifier: HeavySniper",
-	"CM_Sniper_desc": "所有重甲水军有5%几率转化为ZEAL狙击手",
-	"CM_Phalanx_title": "Modifier: ShieldPhalanx",
-	"CM_Phalanx_desc": "所有盾兵转化为冬日盾兵",
-	"CM_Dozer_Shot_title": "连喷黑熊生成",
-	"CM_Dozer_Shot_desc": "全难度可生成连喷黑熊",
-	"CM_Dozer_Skull_title": "Modifier: Skull Dozer",
-	"CM_Dozer_Skull_desc": "全难度可生成机枪骷髅熊",
-	"CM_Dozer_Mini_title": "Modifier: Minigun Dozer",
-	"CM_Dozer_Mini_desc": "全难度可生成火神熊",
-	"CM_Dozer_Medic_title": "Modifier: Medic Dozer",
-	"CM_Dozer_Medic_desc": "全难度可生成医疗熊"
+	"UO_SCS_desc": "UMP45和XM1014的两个轻甲水军"
 }
