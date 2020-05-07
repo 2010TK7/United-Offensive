@@ -1,15 +1,16 @@
 {
 	"name": "United Offensive",
-	"description": "high difficulty enemies are include low difficulty enemies. added some interesting units like HRTs, ZEAL Snipers, cops and so on.",
+	"description": "high difficulty enemies are include low difficulty enemies. added some interesting units.",
 	"author": "TK7"
 	"contact": "http://steamcommunity.com/id/2010TK7",
-	"version": "1.4[Beta]",
+	"version": "1.5",
 	"blt_version": 2,
-	"hooks":
-	[
-		{
-			"hook_id": "lib/tweak_data/groupaitweakdata",
-			"script_path": "groupaitweakdata_1.4[Beta].lua"
-		}
+	"hooks": [
+		{"hook_id": "lib/managers/menumanager", "script_path": "lua/unitedoffensive.lua"},
+		{"hook_id": "lib/managers/menumanager", "script_path": "lua/menumanager.lua"},
+		{"hook_id": "lib/tweak_data/groupaitweakdata", "script_path": "lua/unitedoffensive.lua"},
+		{"hook_id": "lib/tweak_data/groupaitweakdata", "script_path": "lua/groupaitweakdata.lua"},
+		{"hook_id": "lib/managers/group_ai_states/groupaistatebesiege", "script_path": "lua/unitedoffensive.lua"},
+		{"hook_id": "lib/managers/group_ai_states/groupaistatebesiege", "script_path": "lua/groupaistatebesiege.lua"}
 	]
 }

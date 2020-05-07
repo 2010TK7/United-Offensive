@@ -1,0 +1,215 @@
+{
+	"menu_id": "AR_menu",
+	"parent_menu_id": "UO_menu",
+	"title": "AR_menu_title",
+	"description": "AR_menu_desc",
+	"back_callback": "UOSave",
+	"items":
+	[
+		{
+			"type": "toggle",
+			"id": "AR_ZEAL",
+			"title": "AR_ZEAL_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZEAL",
+			"default_value": false
+		},
+		{
+			"type": "divider",
+			"size": 32
+		},
+		{
+			"type": "toggle",
+			"id": "AR_AA",
+			"title": "AR_AA_title",
+			"description": "AR_01_desc",
+			"callback": "UOCheck",
+			"value": "AR_AA",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "AR_AR",
+			"title": "AR_AR_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_AR",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_AZ",
+			"title": "AR_AZ_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_AZ",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_AM",
+			"title": "AR_AM_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_AM",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_AO",
+			"title": "AR_AO_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_AO",
+			"default_value": true
+		},
+		{
+			"type": "divider",
+			"size": 32
+		},
+		{
+			"type": "toggle",
+			"id": "AR_RA",
+			"title": "AR_RA_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_RA",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_RR",
+			"title": "AR_RR_title",
+			"description": "AR_01_desc",
+			"callback": "UOCheck",
+			"value": "AR_RR",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "AR_RZ",
+			"title": "AR_RZ_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_RZ",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_RM",
+			"title": "AR_RM_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_RM",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_RO",
+			"title": "AR_RO_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_RO",
+			"default_value": false
+		},
+		{
+			"type": "divider",
+			"size": 32
+		},
+		{
+			"type": "toggle",
+			"id": "AR_ZA",
+			"title": "AR_ZA_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZA",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_ZR",
+			"title": "AR_ZR_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZR",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_ZZ",
+			"title": "AR_ZZ_title",
+			"description": "AR_01_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZZ",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "AR_ZM",
+			"title": "AR_ZM_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZM",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_ZO",
+			"title": "AR_ZO_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_ZO",
+			"default_value": false
+		},
+		{
+			"type": "divider",
+			"size": 32
+		},
+		{
+			"type": "toggle",
+			"id": "AR_MA",
+			"title": "AR_MA_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_MA",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_MR",
+			"title": "AR_MR_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_MR",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_MZ",
+			"title": "AR_MZ_title",
+			"description": "AR_03_desc",
+			"callback": "UOCheck",
+			"value": "AR_MZ",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
+			"id": "AR_MM",
+			"title": "AR_MM_title",
+			"description": "AR_01_desc",
+			"callback": "UOCheck",
+			"value": "AR_MM",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "AR_MO",
+			"title": "AR_MO_title",
+			"description": "AR_02_desc",
+			"callback": "UOCheck",
+			"value": "AR_MO",
+			"default_value": false
+		}
+	]
+}
